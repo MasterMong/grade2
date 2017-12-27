@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>เทคนิคการใช้งาน Search Engine</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.easing.min.js"></script>
+	<script src="assets/js/sweetalert.min.js"></script>	
+  </head>
+  <body>
+	  	<center>
+	  	<h2>
+			<div>การใช้แป้นพิมพ์เบื้องต้น</div><br>
+		</h2>
+		<h3>
+			ปุ่มเปลี่ยนภาษา<img src="./assets/img/change.jpg" height="150px">
+			ปุ่มลบข้อความ<img src="./assets/img/del.jpg" height="150px">
+			ปุ่มสลับตัวอักษร<img src="./assets/img/shift.jpg" height="150px">
+		</h3>
+		</center><br>
+		<h3>
+			คำสั่ง ให้นักเรียนพิมพ์ข้อความ " โดโดโด " ลงในกล่องข้อความด้านล่าง
+		</h3>
+		
+		<div>
+			<div class="form-group row">
+				<div class="col-xs-10">
+						<label for="ex1">โดโดโด</label>
+						<input id="input" type="text" maxlength="8" placeholder="พิมพ์ โดโดโด ใส่ช่องนี้" class="form-control input-lg"><br>
+				</div>
+				<div class="col-xs-4">
+					<label for="ex1">ชื่อ</label>
+					<input id="txtName" type="text" maxlength="30" placeholder="ชื่อ" class="form-control input-lg">
+				</div>
+				<div class="col-xs-4">
+						<label for="ex1">สกุล </label>
+						<input id="txtLname" type="text" maxlength="30" placeholder="สกุล" class="form-control input-lg">
+				</div>
+				<div class="col-xs-1">
+						<label for="ex1">ป.2 ห้อง</label>
+						<input id="txtRoom" type="text" maxlength="1" placeholder="ห้อง" class="form-control input-lg">
+				</div>
+				<div class="col-xs-1">
+						<label for="ex1">เลขที่</label>
+						<input id="txtNo" type="text" maxlength="2" placeholder="เลขที่" class="form-control input-lg">
+				</div>
+
+			</div>
+			<span onclick="gg();" class="btn-lg btn-success btn-block"><center>ส่ง</center></span>
+		</div>
+  </body>
+	<script>
+		function gg(){
+			var txt = $("#input").val();
+			var txtName = $("#txtName").val();
+			var txtLname = $("#txtLname").val();
+			var txtRoom = $("#txtRoom").val();
+			var txtNo = $("#txtNo").val();
+			var mesErr = "";
+			if(txtName == ""){
+				mesErr += " ชื่อ";
+			}
+			if(txtLname == ""){
+				mesErr += " สกุล";
+			}
+			if(txtRoom == ""){
+				mesErr += " ห้อง";
+			}
+			if(txtNo == ""){
+				mesErr += " เลขที่";
+			}
+			if (mesErr){
+				//alert("ให้นักเรียนระบุ" + mesErr);
+				swal({
+					title: "ให้นักเรียนระบุ" + mesErr,
+					text: "ตรวจสอบความเรียบร้อย",
+					type: "error",
+					confirmButtonText: "ลองใหม่"
+				});
+			} else if(txt == "โดโดโด"){
+				swal({
+							title: "สำเร็จ! เรียกครูมาตรวจจ่ะ",
+							text: "ชื่อ " + txtName + " สกุล " + txtLname + " ห้อง " + txtRoom + " เลขที่ " + txtNo,
+							type: "success",
+							showCancelButton: true,
+							confirmButtonColor: "#DD6B55",
+							confirmButtonText: "ผ่าน/ตรวจแล้ว",
+							cancelButtonText: "ไม่ผ่าน/พิมพ์ใหม่",
+							closeOnConfirm: false,
+							closeOnCancel: false
+						},
+						function(isConfirm){
+							if (isConfirm) {
+								window.location.href = "/";
+							} else {
+								swal("ลองพิมพ์ใหม่อีกครั้ง", "ตรวจสอบความถูกต้องของ ชื่อ สกุล ชั้น เลขที่ ให้เรียบร้อย", "info");
+								confirmButtonText: "รับทราบ"
+							}
+						});
+			}else {
+				swal({
+					title: "ไม่ถูกต้อง !",
+					text: "ให้นักเรียนพิมพ์ข้อความ โดโดโด ลงใสกล่องสี่เหลี่ยม",
+					type: "error",
+					confirmButtonText: "ลองใหม่"
+				});
+			}
+			
+		}
+	</script>
+</html>

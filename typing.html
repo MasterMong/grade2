@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>เทคนิคการใช้งาน Search Engine</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.easing.min.js"></script>
+	<script src="assets/js/sweetalert.min.js"></script>	
+  </head>
+  <body>
+	  	<center>
+	  	<h2>
+			<div>การใช้ปุ่มเปลี่ยนภาษา </div><br>
+		</h2>
+		<h3>
+			ปุ่มเปลี่ยนภาษา<img src="./assets/img/change.jpg" height="150px">
+			ปุ่มลบข้อความ<img src="./assets/img/del.jpg" height="150px">
+		</h3>
+		</center><br>
+		<h3>
+			คำสั่ง ให้นักเรียนพิมพ์ข้อความ " อvอvอv " ลงในกล่องข้อความด้านล่าง แล้วกด "ส่ง"
+		</h3>
+		
+		<div>
+			<input id="input" type="text" maxlength="7" placeholder="พิมพ์ใส่ช่องนี้" class="form-control input-lg">
+			<br><center><span onclick="gg();" class="btn-lg btn-success btn-block">ส่ง</span>
+		</div>
+  </body>
+	<script>
+		function gg(){
+			var txt = $("#input").val();
+			if(txt == "อvอvอv"){
+				swal({
+							title: "สำเร็จ! เรียกครูมาตรวจจ่ะ",
+							text: "ดีมาก",
+							type: "success",
+							showCancelButton: false,
+							confirmButtonColor: "#DD6B55",
+							confirmButtonText: "ตรวจแล้ว",
+							cancelButtonText: "No, cancel plx!",
+							closeOnConfirm: false,
+							closeOnCancel: false
+						},
+						function(isConfirm){
+							if (isConfirm) {
+								window.location.href = "/";
+							} else {
+								swal("Cancelled", "Your imaginary file is safe :)", "error");
+							}
+						});
+			}else {
+				swal({
+					title: "ไม่ถูกต้อง !",
+					text: "ให้นักเรียนพิมพ์ข้อความ อvอvอv ลงใสกล่องสี่เหลี่ยม",
+					type: "error",
+					confirmButtonText: "ลองใหม่"
+				});
+			}
+			
+		}
+	</script>
+</html>

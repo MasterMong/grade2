@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>การใช้แป้นพิมพ์ขั้นสูง ป.2</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.easing.min.js"></script>
+	<script src="assets/js/sweetalert.min.js"></script>	
+  </head>
+  <body>
+	  	<center>
+	  	<h2>
+			<div>การใช้แป้นพิมพ์ขั้นสูง ป.2</div><br>
+		</h2>
+		</center>
+		<h3>
+			คำชี้แจง ให้นักเรียนปฏิบัติตามคำสั่งให้ครบทุกข้อ
+		</h3>
+		
+		<div>
+			<div class="form-group row">
+				<div class="col-xs-4">
+					<label for="ex1">ชื่อ</label>
+					<input id="txtName" type="text" maxlength="30" placeholder="ชื่อ" class="form-control input-lg">
+				</div>
+				<div class="col-xs-4">
+						<label for="ex1">สกุล </label>
+						<input id="txtLname" type="text" maxlength="30" placeholder="สกุล" class="form-control input-lg">
+				</div>
+				<div class="col-xs-1">
+						<label for="ex1">ป.2 ห้อง</label>
+						<input id="txtRoom" type="text"  placeholder="ห้อง" class="form-control input-lg">
+				</div>
+				<div class="col-xs-1">
+						<label for="ex1">เลขที่</label>
+						<input id="txtNo" type="text"  placeholder="เลขที่" class="form-control input-lg">
+				</div><br>
+				
+			</div>
+			<label>1. ให้นักเรียนพิมพ์คำว่า [xuowกขคง]</label>
+						<input id="ch1" type="text" maxlength="" placeholder="พิมพ์ xuowกขคง" class="form-control input-lg">
+						<br>
+			<label>2. ให้นักเรียนกดปุ่ม Caps Lock ให้ไฟสถานะที่ 2 ติด แล้วกดปุ่ม ส, ว, ย บนแป้นอักขระแล้วจะได้ผลลัพธ์คือ [ศซญ]</label>
+						<input id="ch2" type="text" maxlength="" placeholder="กดปุ่ม Caps Lock ให้ไฟสถานะที่ 2 ติด แล้วกดปุ่ม ส, ว, ย บนแป้นอักขระ" class="form-control input-lg">
+						<br>
+			<label>3. เปิด Num Lock ให้ไฟสถาระที่ 1 ติดแล้วพิมพ์ตัวเลข 0-9 โดยใช้แป้นตัวเลข [0123456789]</label>
+						<input id="ch3" type="text" maxlength="" placeholder="พิมพ์ตัวเลข 0-9 โดยใช้แป้นตัวเลข" class="form-control input-lg">
+						<br>
+			<label>4. ให้นักเรียนเลื่อนเคอร์เซอร์โดยใช้แป้นควบคุมไปไวหลังคำว่า โรง จากนั้นให้นักเรียนลบคำว่า โรง ออก [เรียน]</label>
+						<input id="ch4" type="text" maxlength="" value='โรงเรียน' class="form-control input-lg">
+
+			<span onclick="gg();" class="btn-lg btn-success btn-block"><center>ส่ง</center></span>
+		</div>
+  </body>
+	<script>
+		function gg(){
+			var txt = $("#input").val();
+			var txtName = $("#txtName").val();
+			var txtLname = $("#txtLname").val();
+			var txtRoom = $("#txtRoom").val();
+			var txtNo = $("#txtNo").val();
+			var txtCh1 = $("#ch1").val();
+			var txtCh2 = $("#ch2").val();
+			var txtCh3 = $("#ch3").val();
+			var txtCh4 = $("#ch4").val();
+			var mesErr = "";
+			if(txtName == ""){
+				mesErr += " ชื่อ";
+			}
+			if(txtLname == ""){
+				mesErr += " สกุล";
+			}
+			if(txtRoom == ""){
+				mesErr += " ห้อง";
+			}
+			if(txtNo == ""){
+				mesErr += " เลขที่";
+			}
+			if(txtCh1 !== "xuowกขคง"){
+				mesErr += " [ข้อที่ 1 พิมพ์คำว่า xuowกขคง]";
+			}
+			if(txtCh2 !== "ศซญ"){
+				mesErr += " [ข้อที่ 2 พิมพ์คำว่า ศซญ]";
+			}
+			if(txtCh3 !== "0123456789"){
+				mesErr += " [ข้อที่ 3 พิมพ์คำว่า 0123456789]";
+			}
+			if(txtCh4 !== 'เรียน'){
+				mesErr += " [ข้อที่ 4 พิมพ์คำว่า เรียน]";
+			}
+			if (mesErr){
+				//alert("ให้นักเรียนระบุ" + mesErr);
+				swal({
+					title: "ระบุ",
+					text: "ตรวจสอบความเรียบร้อย ดังต่อไปนี้ : " + mesErr,
+					type: "error",
+					confirmButtonText: "ลองใหม่"
+				});
+			} else if(mesErr == ""){
+				swal({
+							title: "สำเร็จ! เรียกครูมาตรวจจ่ะ",
+							text: "ชื่อ " + txtName + " สกุล " + txtLname + " ห้อง " + txtRoom + " เลขที่ " + txtNo,
+							type: "success",
+							showCancelButton: true,
+							confirmButtonColor: "#DD6B55",
+							confirmButtonText: "ผ่าน/ตรวจแล้ว",
+							cancelButtonText: "ไม่ผ่าน/พิมพ์ใหม่",
+							closeOnConfirm: false,
+							closeOnCancel: false
+						},
+						function(isConfirm){
+							if (isConfirm) {
+								window.location.href = "submit/advKeyboard.php?no=" + txtNo + "&class="+ txtRoom +"&name=" + txtName + " " + txtLname;
+							} else {
+								swal("ลองพิมพ์ใหม่อีกครั้ง", "ตรวจสอบความถูกต้องของ ชื่อ สกุล ชั้น เลขที่ ให้เรียบร้อย", "info");
+								confirmButtonText: "รับทราบ"
+							}
+						});
+			}			
+		}
+	</script>
+</html>
