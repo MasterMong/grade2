@@ -22,7 +22,7 @@
   <body>
 	  	<center>
 	  	<h1>
-			<div>การใช้แป้นพิมพ์ขั้นสูง ป.2</div><br>
+			<div>ทบทวนการใช้แป้นพิมพ์ ป.2</div><br>
 		</h1>
 		</center>
 		<h2>
@@ -37,30 +37,29 @@
 				</div>
 			
 				<div class="col-xs-4">
-						<label for="ex1">สกุล </label>
+						<label for="ex1">ชื่อเล่น </label>
 						<input id="txtLname" type="text" maxlength="30" placeholder="สกุล" class="form-control input-lg">
 				</div>
-		
 				<div class="col-xs-1">
-						<label for="ex1">ป.2 ห้อง</label>
-						<input id="txtRoom" type="text"  placeholder="ห้อง" class="form-control input-lg">
-				</div>
-				<div class="col-xs-1">
-						<label for="ex1">เลขที่</label>
-						<input id="txtNo" type="text"  placeholder="เลขที่" class="form-control input-lg">
-				</div><br>
+                    <label for="ex1">ป.2 ห้อง</label>
+                    <input id="txtRoom" type="text"  placeholder="ห้อง" class="form-control input-lg">
+            </div>
+            <div class="col-xs-1">
+                    <label for="ex1">เลขที่</label>
+                    <input id="txtNo" type="text"  placeholder="เลขที่" class="form-control input-lg">
+            </div><br>
 				
 			</div>
-			<label>1. ให้นักเรียนพิมพ์คำว่า [ xowกขค ]</label>
-						<input id="ch1" type="text" maxlength="" placeholder="พิมพ์ xowกขค" class="form-control input-lg">
+			<label>1. ให้นักเรียนพิมพ์คำว่า [ อvอvอv ]</label>
+						<input id="ch1" type="text" maxlength="" placeholder="อvอvอv" class="form-control input-lg">
 						<br>
-			<label>2. ให้นักเรียนพิมพ์ [ ธษฉ ]</label>
-						<input id="ch2" type="text" maxlength="" placeholder="ให้นักเรียนพิมพ์ ธษฉ" class="form-control input-lg">
+			<label>2. ให้นักเรียนพิมพ์ [ โดโดโดโด ]</label>
+						<input id="ch2" type="text" maxlength="" placeholder="ให้นักเรียนพิมพ์ โดโดโดโด" class="form-control input-lg">
 						<br>
-			<label>3. เปิด Num Lock ให้ไฟสถาระที่ 1 ติดแล้วพิมพ์ตัวเลข 0-9 โดยใช้แป้นตัวเลข [ 0123456789 ]</label>
+			<label>3. จงพิมพ์ตัวเลข 0-9 โดยใช้แป้นตัวเลข [ 0123456789 ]</label>
 						<input id="ch3" type="text" maxlength="" placeholder="พิมพ์ตัวเลข 0-9 โดยใช้แป้นตัวเลข" class="form-control input-lg">
 						<br>
-			<label>4. ให้นักเรียนลบคำว่า โรง ออก [ เรียน ]</label>
+			<label>4. ให้นักเรียนลบคำว่า เรียน ออก [ โรง ]</label>
 						<input id="ch4" type="text" maxlength="" value='โรงเรียน' class="form-control input-lg">
 
 			<span onclick="gg();" class="btn-lg btn-success btn-block"><center>ส่ง</center></span>
@@ -90,17 +89,17 @@
 			if(txtNo == ""){
 				mesErr += " เลขที่";
 			}
-			if(txtCh1 !== "xowกขค"){
-				mesErr += " [ข้อที่ 1 พิมพ์คำว่า xowกขค]";
+			if(txtCh1 !== "อvอvอv"){
+				mesErr += " [ข้อที่ 1 พิมพ์คำว่า อvอvอv]";
 			}
-			if(txtCh2 !== "ธษฉ"){
-				mesErr += " [ข้อที่ 2 พิมพ์คำว่า ธษฉ]";
+			if(txtCh2 !== "โดโดโดโด"){
+				mesErr += " [ข้อที่ 2 พิมพ์คำว่า โดโดโดโด]";
 			}
 			if(txtCh3 !== "0123456789"){
 				mesErr += " [ข้อที่ 3 พิมพ์คำว่า 0123456789]";
 			}
-			if(txtCh4 !== 'เรียน'){
-				mesErr += " [ข้อที่ 4 พิมพ์คำว่า เรียน]";
+			if(txtCh4 !== 'โรง'){
+				mesErr += " [ข้อที่ 4 พิมพ์คำว่า โรง]";
 			}
 			if (mesErr){
 				//alert("ให้นักเรียนระบุ" + mesErr);
